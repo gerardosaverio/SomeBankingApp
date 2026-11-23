@@ -1,0 +1,36 @@
+
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clonazione repository') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/mmenapace/SomeBankingApp.git'
+            }
+        }
+
+        stage('Build Backend') {
+            steps {
+                sh 'docker build -t somebanking-backend -f backend/Dockerfile backend'
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                sh 'docker build -t somebanking-frontend -f frontend/Dockerfile frontend'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build completata con successo!'
+        }
+
+        failure {
+            echo 'Errore durante la build!'
+        }
+    }
+}
