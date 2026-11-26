@@ -159,7 +159,11 @@ def generate_card_number() -> str:
 
 # --- FastAPI Application ---
 
-app = FastAPI(title="Simple Banking Backend API", version="1.0.0")
+app = FastAPI(
+    title="Simple Banking Backend API",
+    version="1.0.0",
+    root_path="/api"
+)
 
 # Add this right after app = FastAPI(...) in your Python code:
 app.add_middleware(
