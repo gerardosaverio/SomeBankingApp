@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/TUO_USERNAME/SomeBankingApp.git temp_repo \
+RUN git clone https://github.com/gerardosaverio/SomeBankingApp.git temp_repo \
     && mv temp_repo/backend/* . \
     && rm -rf temp_repo
 

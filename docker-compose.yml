@@ -9,8 +9,8 @@ services:
     expose:
       - "80"
 
-  nginx:
-    image: banking-nginx
+  proxy:
+    image: banking-proxy
     ports:
       - "80:80"
     depends_on:
